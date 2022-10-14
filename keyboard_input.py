@@ -57,7 +57,7 @@ def key_input ():
 
                                     print ("first ID set: " + str(first_id))
                                     LCD_display.display ("Enter VUT ID again.", '', pressed_keys,'', clear = True)
-                                    time.sleep (1)
+                                    time.sleep (2)
                                     LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
                                     
                                     
@@ -72,7 +72,7 @@ def key_input ():
                                         print ("VUT IDs are same, sending data pair to CRM")
                                         LCD_display.display ("Sending data", 'to the database.', "Have a nice day!",'', clear = True)
                                         time.sleep (3)
-                                        LCD_display.clear ()   
+                                        
                                         
                                         vut_id = second_id
                                         #config.card_id
@@ -81,7 +81,9 @@ def key_input ():
                                         # TODO : API for uploading data sets VUT_ID - CARD_ID to CRM/APOLLO
                                         
                                         ###
-                                                
+                                        
+                                        LCD_display.display ("Please wait for", "X minutes and swipe", "your card again","to verify procedure", clear = True)
+                                        LCD_display.clear ()          
                                         pygame.quit()
                                     
                                     else:
