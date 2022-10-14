@@ -68,7 +68,7 @@ def in_database ():
     #user card is in internal database
     backlight (True)
     display ("Hello " + str(config.user_name) + ",", 'your card is set.', "RFID blue boxes","will work now.", clear = True)
-
+    time.sleep (3) 
     
 
     
