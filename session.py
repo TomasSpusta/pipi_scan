@@ -20,13 +20,13 @@ def user_check ():
         print ('User in RFID CRM database')
         
 def session_end ():
-    print ("Ending session")
+    
     #when session is ended by time out, or by pressing the button    
     config.vut_id = 0
     config.card_id = 0
     config.in_database = False
 
     # GPIO.cleanup(config.button_pin) # it is necessary to figure out how the button pin reacts on cleaning
-    print ("Recording ended")     
+    print ("Cycle ended")     
     time.sleep(1)
 
