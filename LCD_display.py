@@ -16,6 +16,15 @@ lcd = CharLCD('PCF8574', 0x27)
     #lcd.clear()
 #
 
+def display (line1, line2, line3, line4, clear = True,):
+    if clear == True:
+        lcd.clear()
+    write (line1,1)
+    write (line2,2)
+    write (line3,3)
+    write (line4,4)   
+
+
 def backlight (status=True):
     lcd.backlight_enabled = status
     
