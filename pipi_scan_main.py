@@ -18,7 +18,7 @@
 import faulthandler
 import RPi.GPIO as GPIO
 import time
-import threading
+from keyboard_input import key_input
 
 
 from network_check import network_check
@@ -51,16 +51,12 @@ try:
             #Wait for the card swipe 
             card_reader ()
             
-            #check if user is in the RFID database
+            #check if user's card is in the RFID/CRM database
             session.user_check ()
             
-            #check if the user has reservation on the equipment
-            #in appropriate time window and start recording
-            session.reservation_check ()
-            
-            #every X seconds check the remaining time of session and number of acquired files
-            session.session_recording ()
-            
+            #input module to obtain VUT ID
+            key_input ()
+                      
             # when session ends reset variables for new user
             session.session_end ()
         
@@ -71,7 +67,6 @@ try:
 except KeyboardInterrupt:
     print("CTRL + V pressed, script ended in pipi_reader script")
     
-    print (threading.enumerate())
     time.sleep (0.5)
     LCD_display.backlight (False)
     LCD_display.clear ()        
