@@ -28,9 +28,17 @@ def key_input ():
                         inputs = False
 
                     if event.type == pygame.KEYDOWN:
+                        
+                        if event.key >= 0x100 and event.key <= 0x109:
+                            event.key = event.key - 0xD0
+                        else:
+                            pass
+                             
                         pressed_key = pygame.key.name(event.key)
                         print ("event key")
                         print (event.key)
+                        
+                        
                         
                         if event.key == pygame.K_BACKSPACE:
                             if pressed_keys == []:
