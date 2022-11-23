@@ -76,7 +76,7 @@ def key_input ():
                                         
                                         
                                         config.vut_id = second_id
-                                        config.card_id
+                                        #config.card_id
                                         
                                         ###
                                         # TODO : API for uploading data sets VUT_ID - CARD_ID to CRM/APOLLO
