@@ -37,6 +37,13 @@ def key_input ():
                                 del pressed_keys[-1]
                             LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
                         
+                        elif event.key == pygame.K_ESCAPE:
+                            enter_pressed_count = 0
+                            pressed_keys = []
+                            pygame.quit()
+                            
+                            
+                            
                         elif event.key == pygame.K_RETURN:
                             
                             if pressed_keys == []:
@@ -44,7 +51,9 @@ def key_input ():
                                 
                                 time.sleep (2)
                                 LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
-                            
+                        
+                        
+                                
                         
                             
                             else:
