@@ -7,36 +7,37 @@ import web_requests
 
 def key_input ():
     if config.in_database == False:
+        # If the card is not in database, initialize pygame module to scan for key presses
         pygame.init()
-        window = pygame.display.set_mode((100, 100))
-        #pygame.display.set_caption("Pygame Demonstration")
-
+        window = pygame.display.set_mode((100, 100)) #pygame window needs to be open and active to scan for keypresses
+        
+        #initial variables       
         enter_pressed_count = 0
         pressed_keys = []
         inputs = True
-        
-        
-
-
+     
         LCD_display.clear ()
         LCD_display.write ("Enter your VUT ID:",1)
         try:
+            #scanning for key inputs
             while inputs:
-                
+                #for every key input it will do specific things
                 for event in pygame.event.get():
+                    # if quit is called - pygame window is closed
                     if event.type == pygame.QUIT:
                         inputs = False
-
+                    # keypress section
                     if event.type == pygame.KEYDOWN:
-                        
+                        #if the numbers on numerical calculator are pressed, they are converted to the "top" numbers    
                         if event.key >= 0x100 and event.key <= 0x109:
                             event.key = event.key - 0xD0
                         else:
                             pass
-                             
-                        pressed_key = pygame.key.name(event.key)
-                        #print ("event key")
-                        #print (event.key)                      
+                        # if characters other than numbers are pressed, it will pass, and do not show them on display
+                        if event.key >= 0x30 and event.key <=0x39:                      
+                            pressed_key = pygame.key.name(event.key)
+                        else:
+                            pass
                         
                         if event.key == pygame.K_BACKSPACE:
                             if pressed_keys == []:
