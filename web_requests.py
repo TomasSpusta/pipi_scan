@@ -52,8 +52,9 @@ def crm_send_dataset ():
             print ("Writing to database successful")
         else:
             print ("Writing to database failed.")
-             
+        return crm_response.status_code
+         
     except Exception as e:
         print("Error in crm_request_rfid:")
         print (e)
-    return crm_response.status_code
+    
