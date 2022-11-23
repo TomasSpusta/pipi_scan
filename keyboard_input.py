@@ -93,6 +93,7 @@ def key_input ():
                                         print ("VUT IDs are same, sending data pair to CRM")
                                         
                                         LCD_display.display ("Sending data", 'to the database.', "Thank You!",'', clear = True)
+                                        time.sleep (5)
                                         config.vut_id = str(second_id)
                                         #web_requests.crm_send_dataset ()
                                         status_code = web_requests.crm_send_dataset ()
