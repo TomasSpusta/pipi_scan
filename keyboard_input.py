@@ -58,7 +58,7 @@ def key_input ():
 
                                     print ("first ID set: " + str(first_id))
                                     LCD_display.display ("Enter VUT ID again.", '', pressed_keys,'', clear = True)
-                                    time.sleep (2)
+                                    time.sleep (1)
                                     LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
                                     
                                     
@@ -75,8 +75,8 @@ def key_input ():
                                         time.sleep (3)
                                         
                                         
-                                        vut_id = second_id
-                                        #config.card_id
+                                        config.vut_id = second_id
+                                        config.card_id
                                         
                                         ###
                                         # TODO : API for uploading data sets VUT_ID - CARD_ID to CRM/APOLLO
@@ -98,7 +98,7 @@ def key_input ():
                         else:
                             pressed_keys.append(pressed_key)
                             LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
-                            print (pressed_keys)
+                            #print (pressed_keys)
         
         except Exception as e:
             print (e)                       
