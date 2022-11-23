@@ -75,7 +75,7 @@ def key_input ():
                                         time.sleep (3)
                                         
                                         
-                                        config.vut_id = second_id
+                                        config.vut_id = str(second_id)
                                         #config.card_id
                                         
                                         ###
