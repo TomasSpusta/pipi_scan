@@ -42,8 +42,9 @@ def crm_send_dataset ():
     payload = {"vutid":config.vut_id, "rfid":config.card_id}
     try:
         crm_response = requests.patch ("https://crm.api.ceitec.cz/save-rfid-by-vutid", json = payload)
-        #crm_data = crm_response.json()
-        #print (crm_data)
+        crm_data = crm_response.json()
+        print (crm_data)
+        print (crm_response.status_code)
         
         if crm_response.status_code == 200:
             print ("Writing to database successful")

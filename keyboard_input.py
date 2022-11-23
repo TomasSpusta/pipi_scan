@@ -85,7 +85,7 @@ def key_input ():
                                         
                                         ###
                                         
-                                        LCD_display.display ("Please wait for", "X minutes and swipe", "your card again","to verify procedure", clear = True)
+                                        #LCD_display.display ("Please wait for", "X minutes and swipe", "your card again","to verify procedure", clear = True)
                                         LCD_display.clear ()          
                                         pygame.quit()
                                     
