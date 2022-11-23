@@ -57,8 +57,8 @@ def key_input ():
                             pressed_keys = []
                             pygame.quit() 
                             
-                        #if ENTER is pressed, program will continue to next stage according to how many times enter was pressed    
-                        elif event.key == pygame.K_RETURN or event.key == pygame.K_KP_RETURN:
+                        #if ENTER (Return or numeric) is pressed, program will continue to next stage according to how many times enter was pressed    
+                        elif event.key == pygame.K_RETURN or event.key == pygame.K_KP_ENTER:
                             
                             if pressed_keys == []:
                                 LCD_display.display ("VUT ID", 'is more than', "0 characters",'', clear = True)
@@ -93,16 +93,17 @@ def key_input ():
                                         print ("VUT IDs are same, sending data pair to CRM")
                                         
                                         LCD_display.display ("Sending data", 'to the database.', "Thank You!",'', clear = True)
-                                        time.sleep (5)
+                                        
                                         config.vut_id = str(second_id)
                                         #web_requests.crm_send_dataset ()
                                         status_code = web_requests.crm_send_dataset ()
                                         print (status_code)
+                                        time.sleep (5)
                                         
                                         if status_code == 200:
-                                            LCD_display.display ("Writing completed.", 'Data are saved.', "Blue boxes online",'', clear = True)
+                                            LCD_display.display ("Writing completed.", 'Data are saved.', "Blue boxes online.",'', clear = True)
                                         else:
-                                            LCD_display.display ("Error.", 'Something went wrong.', "Try to repeat,",'or visit user office', clear = True)
+                                            LCD_display.display ("Error.", 'Something went wrong.', "Try to repeat, or",'visit user office', clear = True)
 
                                         time.sleep (5)
                                         #print ("VUT ID is: " + str (config.vut_id) + str (type(config.vut_id)))
