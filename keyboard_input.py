@@ -58,7 +58,7 @@ def key_input ():
                             pygame.quit() 
                             
                         #if ENTER is pressed, program will continue to next stage according to how many times enter was pressed    
-                        elif event.key == pygame.K_RETURN:
+                        elif event.key == pygame.K_RETURN or event.key == pygame.K_KP_RETURN:
                             
                             if pressed_keys == []:
                                 LCD_display.display ("VUT ID", 'is more than', "0 characters",'', clear = True)
