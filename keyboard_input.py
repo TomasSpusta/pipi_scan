@@ -35,10 +35,8 @@ def key_input ():
                             pass
                              
                         pressed_key = pygame.key.name(event.key)
-                        print ("event key")
-                        print (event.key)
-                        
-                        
+                        #print ("event key")
+                        #print (event.key)                      
                         
                         if event.key == pygame.K_BACKSPACE:
                             if pressed_keys == []:
