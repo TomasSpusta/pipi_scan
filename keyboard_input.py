@@ -29,6 +29,8 @@ def key_input ():
 
                     if event.type == pygame.KEYDOWN:
                         pressed_key = pygame.key.name(event.key)
+                        print ("event key")
+                        print (event.key)
                         
                         if event.key == pygame.K_BACKSPACE:
                             if pressed_keys == []:
@@ -40,8 +42,7 @@ def key_input ():
                         elif event.key == pygame.K_ESCAPE:
                             enter_pressed_count = 0
                             pressed_keys = []
-                            pygame.quit()
-                            
+                            pygame.quit() 
                             
                             
                         elif event.key == pygame.K_RETURN:
