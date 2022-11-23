@@ -76,12 +76,12 @@ def key_input ():
                                         
                                         
                                         config.vut_id = str(second_id)
-                                        print (config.vut_id)
-                                        print (config.card_id)
+                                        print ("VUT ID is: " + str (config.vut_id) + str (type(config.vut_id)))
+                                        print ("Card ID is: " + str (config.card_id) + str (type(config.card_id)))
                                         
                                         ###
                                         # TODO : API for uploading data sets VUT_ID - CARD_ID to CRM/APOLLO
-                                        #web_requests.crm_send_dataset ()
+                                        web_requests.crm_send_dataset ()
                                         
                                         
                                         ###
