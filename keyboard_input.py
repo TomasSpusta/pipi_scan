@@ -33,12 +33,14 @@ def key_input ():
                         if event.key >= 0x100 and event.key <= 0x109:
                             event.key = event.key - 0xD0
                             pressed_key = pygame.key.name(event.key) 
-                            pressed_keys.append(pressed_key)                   
+                            pressed_keys.append(pressed_key)
+                            LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)                   
                         # if characters other than numbers are pressed, it will pass, and do not show them on display 0x30 is 0 and 0x39 is 9
                         elif event.key >= 0x30 and event.key <=0x39:                      
                             event.key = event.key
                             pressed_key = pygame.key.name(event.key)
                             pressed_keys.append(pressed_key)
+                            LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
                             
                         #if BACKSPACE is presed, last character on the screen is deleted
                         elif event.key == pygame.K_BACKSPACE:
