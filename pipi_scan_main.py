@@ -18,7 +18,7 @@
 import faulthandler
 import RPi.GPIO as GPIO
 import time
-from keyboard_input import key_input
+
 
 
 from network_check import network_check
@@ -34,6 +34,7 @@ try:
     github_check (branch = "develop")
     time.sleep (5)
     
+    from keyboard_input import key_input
     from card_reader import card_reader
     import session
     import LCD_display
