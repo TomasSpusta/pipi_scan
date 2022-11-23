@@ -2,6 +2,7 @@ import config
 import pygame
 import LCD_display
 import time
+import web_requests
 
 
 def key_input ():
@@ -79,6 +80,8 @@ def key_input ():
                                         
                                         ###
                                         # TODO : API for uploading data sets VUT_ID - CARD_ID to CRM/APOLLO
+                                        web_requests.crm_send_dataset ()
+                                        
                                         
                                         ###
                                         

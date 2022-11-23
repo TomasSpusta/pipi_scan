@@ -1,9 +1,6 @@
 
-
 import requests
-import time
 import config
-import sys
 import unidecode
 
 
@@ -42,4 +39,18 @@ def crm_request_rfid ():
         print (e)
    
 def crm_send_dataset ():
-    pass    
+    payload = {"vutid":config.vut_id, "rfid":config.card_id}
+    try:
+        crm_response = requests.patch ("https://crm.api.ceitec.cz/save-rfid-by-vutid", json = payload)
+        #crm_data = crm_response.json()
+        #print (crm_data)
+        
+        if crm_response.status_code == 200:
+            print ("Writing to database successful")
+        else:
+            print ("Writing to database failed.")
+             
+    except Exception as e:
+        print("Error in crm_request_rfid:")
+        print (e)
+ 
