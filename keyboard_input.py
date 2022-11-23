@@ -34,7 +34,8 @@ def key_input ():
                             event.key = event.key - 0xD0
                             pressed_key = pygame.key.name(event.key) 
                             pressed_keys.append(pressed_key)
-                            LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)                   
+                            LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)        
+                                       
                         # if characters other than numbers are pressed, it will pass, and do not show them on display 0x30 is 0 and 0x39 is 9
                         elif event.key >= 0x30 and event.key <=0x39:                      
                             event.key = event.key
@@ -82,29 +83,27 @@ def key_input ():
                                 elif enter_pressed_count == 2:
                                     enter_pressed_count = 0
                                     second_id = ""
-                                    second_id = second_id.join (pressed_keys)
-                                                        
+                                    second_id = second_id.join (pressed_keys)                  
                                     pressed_keys = []
+                                    
                                     print ("second ID set: " + str(second_id))
+                                    
+                                    #Compare the 1st and 2nd IDs
                                     if (first_id == second_id) and len (first_id) != 0 and len (second_id) != 0 :
                                         print ("VUT IDs are same, sending data pair to CRM")
-                                        LCD_display.display ("Sending data", 'to the database.', "Have a nice day!",'', clear = True)
-                                        time.sleep (3)
                                         
-                                        
+                                        LCD_display.display ("Sending data", 'to the database.', "Thank You!",'', clear = True)
                                         config.vut_id = str(second_id)
-                         
-                                        print ("VUT ID is: " + str (config.vut_id) + str (type(config.vut_id)))
-                                        print ("Card ID is: " + str (config.card_id) + str (type(config.card_id)))
-                                        
-                                        ###
-                                        # TODO : API for uploading data sets VUT_ID - CARD_ID to CRM/APOLLO
-                                        web_requests.crm_send_dataset ()
-                                        
-                                        
-                                        ###
-                                        
-                                        #LCD_display.display ("Please wait for", "X minutes and swipe", "your card again","to verify procedure", clear = True)
+                                        #web_requests.crm_send_dataset ()
+                                        status_code = web_requests.crm_send_dataset ()
+                                        if status_code == 200:
+                                            LCD_display.display ("Writing completed.", 'Data are saved.', "Blue boxes online",'', clear = True)
+                                        else:
+                                            LCD_display.display ("Error.", 'Something went wrong.', "Try to repeat,",'or visit user office', clear = True)
+
+                                        time.sleep (3)
+                                        #print ("VUT ID is: " + str (config.vut_id) + str (type(config.vut_id)))
+                                        #print ("Card ID is: " + str (config.card_id) + str (type(config.card_id)))
                                         LCD_display.clear ()          
                                         pygame.quit()
                                     
@@ -115,7 +114,6 @@ def key_input ():
                             
                         
                         else:
-                            
                             LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
                             #print (pressed_keys)
         

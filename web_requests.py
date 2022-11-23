@@ -56,4 +56,4 @@ def crm_send_dataset ():
     except Exception as e:
         print("Error in crm_request_rfid:")
         print (e)
- 
+    return crm_response.status_code
