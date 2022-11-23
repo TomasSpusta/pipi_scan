@@ -8,5 +8,6 @@ reader = SimpleMFRC522()
 #Parameter rfid is card number from MFRC522 reader
 
 def card_reader():
-    config.card_id, text = reader.read()
+    card_id, text = reader.read()
+    config.card_id = str (card_id)
     #print ('Readed card: ' + str(rfid))

@@ -40,8 +40,7 @@ def crm_request_rfid ():
    
 def crm_send_dataset ():
     payload = {"vutid":config.vut_id, "rfid":config.card_id}
-    print (type.config.vut_id)
-    print (type.config.card_id)
+
     try:
         crm_response = requests.patch ("https://crm.api.ceitec.cz/save-rfid-by-vutid", json = payload)
         crm_data = crm_response.json()

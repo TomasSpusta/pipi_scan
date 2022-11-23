@@ -76,6 +76,7 @@ def key_input ():
                                         
                                         
                                         config.vut_id = str(second_id)
+                         
                                         print ("VUT ID is: " + str (config.vut_id) + str (type(config.vut_id)))
                                         print ("Card ID is: " + str (config.card_id) + str (type(config.card_id)))
                                         
