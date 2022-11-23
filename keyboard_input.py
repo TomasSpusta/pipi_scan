@@ -32,39 +32,36 @@ def key_input ():
                         #if the numbers on numerical calculator are pressed, they are converted to the "top" numbers    
                         if event.key >= 0x100 and event.key <= 0x109:
                             event.key = event.key - 0xD0
-                        else:
-                            pass
-                        # if characters other than numbers are pressed, it will pass, and do not show them on display
-                        if event.key >= 0x30 and event.key <=0x39:                      
+                            pressed_key = pygame.key.name(event.key) 
+                            pressed_keys.append(pressed_key)                   
+                        # if characters other than numbers are pressed, it will pass, and do not show them on display 0x30 is 0 and 0x39 is 9
+                        elif event.key >= 0x30 and event.key <=0x39:                      
+                            event.key = event.key
                             pressed_key = pygame.key.name(event.key)
-                        else:
-                            pass
-                        
-                        if event.key == pygame.K_BACKSPACE:
+                            pressed_keys.append(pressed_key)
+                            
+                        #if BACKSPACE is presed, last character on the screen is deleted
+                        elif event.key == pygame.K_BACKSPACE:
                             if pressed_keys == []:
                                 pass
                             else:
                                 del pressed_keys[-1]
                             LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
-                        
+                            
+                        #if ESCAPE is pressed program will return to "Scan your card please" screen, reset variables
                         elif event.key == pygame.K_ESCAPE:
                             enter_pressed_count = 0
                             pressed_keys = []
                             pygame.quit() 
                             
-                            
+                        #if ENTER is pressed, program will continue to next stage according to how many times enter was pressed    
                         elif event.key == pygame.K_RETURN:
                             
                             if pressed_keys == []:
                                 LCD_display.display ("VUT ID", 'is more than', "0 characters",'', clear = True)
-                                
                                 time.sleep (2)
                                 LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
-                        
-                        
-                                
-                        
-                            
+ 
                             else:
                                 enter_pressed_count += 1
                                 print ("enter_pressed_count: " + str (enter_pressed_count))
@@ -116,7 +113,7 @@ def key_input ():
                             
                         
                         else:
-                            pressed_keys.append(pressed_key)
+                            
                             LCD_display.display ("Your VUT ID:", '', pressed_keys,'', clear = True)
                             #print (pressed_keys)
         
