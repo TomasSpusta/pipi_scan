@@ -15,6 +15,7 @@ def key_input ():
         enter_pressed_count = 0
         pressed_keys = []
         inputs = True
+        pressed_key = 0
      
         LCD_display.clear ()
         LCD_display.write ("Enter your VUT ID:",1)
