@@ -96,15 +96,17 @@ def key_input ():
                                         config.vut_id = str(second_id)
                                         #web_requests.crm_send_dataset ()
                                         status_code = web_requests.crm_send_dataset ()
+                                        print (status_code)
+                                        
                                         if status_code == 200:
                                             LCD_display.display ("Writing completed.", 'Data are saved.', "Blue boxes online",'', clear = True)
                                         else:
                                             LCD_display.display ("Error.", 'Something went wrong.', "Try to repeat,",'or visit user office', clear = True)
 
-                                        time.sleep (3)
+                                        time.sleep (5)
                                         #print ("VUT ID is: " + str (config.vut_id) + str (type(config.vut_id)))
                                         #print ("Card ID is: " + str (config.card_id) + str (type(config.card_id)))
-                                        LCD_display.clear ()          
+                                        #LCD_display.clear ()          
                                         pygame.quit()
                                     
                                     else:
