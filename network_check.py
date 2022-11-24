@@ -22,24 +22,37 @@ def network_check ():
         try:
             ip = get('https://api.ipify.org').content.decode('utf8')
             print('My public IP address is: {}'.format(ip))    
-            pi_online_status = True
+            
             
         except Exception as ip_e: # if there is an error = no internet connection, ip = 0
             ip = 0
             print (ip_e) 
         
         if ip != 0:
+            pi_online_status = True
             try:   
                 config.mac_address = gma() # get MAC address
                 print("My MAC adress is: {}".format(config.mac_address))
-                                                   
+                
+                try:
+                    # Send request to CRM to obtain equipment info according to MAC address
+                    web_requests.crm_request_mac()
+                except Exception as  e_CRM:
+                    print (e_CRM)
+                    print ("CRM has problem with MAC address")
+                    
             except Exception as mac_e:
-                config.mac_address = 0
+                config.mac_address = "Not connected"
                 print (mac_e)
                 print ("Problem with MAC address")
         else:
             LCD_display.LCD_init (ip, config.mac_address)
-            time.sleep (1)   
+            time.sleep (1)
+            
+
+    print ("Equipment name: " + str (config.equipment_name))
+    print ("Equipment ID: " + str (config.equipment_id))
+            
     LCD_display.LCD_init (ip, config.mac_address)
 
 
