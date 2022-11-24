@@ -9,7 +9,7 @@ import web_requests
 
 def github_check (branch):
     #location of the local folder where the github repository will be downloaded (pulled)
-    local_repo = "/home/pi/pipi_scan_develop"
+    local_repo = "/home/pi/pipi_scan"
     #location/address of the remote github repository
     github_repo = "https://github.com/TomasSpusta/pipi_scan.git"
     #branch = "develop"
