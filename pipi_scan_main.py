@@ -31,7 +31,7 @@ try:
     time.sleep (3)
 
     #Connect to GIT HUB and download the latest version from "main" or "develop" branch
-    github_check (branch = "develop")
+    github_check (branch = "main")
     time.sleep (5)
     
     from keyboard_input import key_input
