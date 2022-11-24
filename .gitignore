@@ -1,0 +1,3 @@
+tests/*
+pipi_log.log
+pipi_upload/__pycache__/*
