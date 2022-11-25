@@ -42,7 +42,7 @@ def network_check ():
                     print ("CRM has problem with MAC address")
                     
             except Exception as mac_e:
-                config.mac_address = "Not connected"
+                config.mac_address = " "
                 print (mac_e)
                 print ("Problem with MAC address")
         else:
@@ -54,9 +54,5 @@ def network_check ():
     print ("Equipment ID: " + str (config.equipment_id))
             
     LCD_display.LCD_init (ip, config.mac_address)
-
-
-
-
 
     
