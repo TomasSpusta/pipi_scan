@@ -10,9 +10,7 @@ import config
 from requests import get
 from getmac import get_mac_address as gma #module for mac adress
 import LCD_display
-import web_requests
 import time
-import RPi.GPIO as GPIO
 
 def network_check (): 
     pi_online_status = False
